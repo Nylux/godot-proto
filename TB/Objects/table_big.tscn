@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://defmjotyxv3hu"]
+
+[ext_resource type="Texture2D" uid="uid://f2n88qrt22q5" path="res://Art/Table.png" id="1_6qacm"]
+[ext_resource type="Script" path="res://Components/health_component.gd" id="2_gd0kp"]
+[ext_resource type="Script" path="res://Components/grid_movement_component.gd" id="3_bnarw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_03q2g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6qacm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Table_Big" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_03q2g")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_gd0kp")
+
+[node name="GridMovementComponent" type="Node" parent="."]
+script = ExtResource("3_bnarw")

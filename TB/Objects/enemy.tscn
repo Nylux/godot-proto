@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://0nio70beywt4"]
+
+[ext_resource type="Texture2D" uid="uid://dy65pd1t1uhhb" path="res://Art/Sprite-0001.png" id="1_6a7oh"]
+[ext_resource type="Script" path="res://Components/grid_movement_component.gd" id="2_41itd"]
+[ext_resource type="Script" path="res://Components/health_component.gd" id="3_0oldv"]
+[ext_resource type="Script" path="res://Components/ai_component.gd" id="4_2v1db"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uuts6"]
+size = Vector2(8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ps8dn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6a7oh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_uuts6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ps8dn")
+
+[node name="GridMovementComponent" type="Node" parent="."]
+script = ExtResource("2_41itd")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("3_0oldv")
+organic = true
+
+[node name="AiComponent" type="Node" parent="."]
+script = ExtResource("4_2v1db")

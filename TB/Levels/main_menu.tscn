@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlae2jeo1odsf"]
+
+[ext_resource type="Script" path="res://Levels/main_menu.gd" id="1_lc3qj"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_lc3qj")
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 512.0
+offset_top = 128.0
+offset_right = 608.0
+offset_bottom = 154.0
+text = "Mercenaries"
+
+[node name="ButtonLayout" type="VFlowContainer" parent="."]
+offset_left = 512.0
+offset_top = 184.0
+offset_right = 608.0
+offset_bottom = 395.0
+alignment = 1
+
+[node name="NewGameButton" type="Button" parent="ButtonLayout"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../LoadGameButton")
+text = "New Game"
+
+[node name="LoadGameButton" type="Button" parent="ButtonLayout"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../NewGameButton")
+focus_neighbor_bottom = NodePath("../SettingsButton")
+disabled = true
+text = "Load Game"
+
+[node name="SettingsButton" type="Button" parent="ButtonLayout"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../LoadGameButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="ButtonLayout"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../SettingsButton")
+focus_neighbor_bottom = NodePath("../NewGameButton")
+text = "Quit"
+
+[node name="VersionLabel" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 56.0
+offset_bottom = 31.0
+text = "Alpha 0.1"
+
+[node name="CreditLabel" type="Label" parent="."]
+offset_left = 472.0
+offset_top = 552.0
+offset_right = 650.0
+offset_bottom = 604.0
+text = "Art by Kenney
+Programming by Nylux"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="ButtonLayout/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="ButtonLayout/QuitButton" to="." method="_on_quit_button_pressed"]

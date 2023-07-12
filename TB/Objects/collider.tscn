@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dknt2wytlpb2p"]
+
+[ext_resource type="Script" path="res://Components/grid_movement_component.gd" id="1_oe8yg"]
+
+[node name="Collider" type="Node2D"]
+
+[node name="GridMovementComponent" type="Node" parent="."]
+script = ExtResource("1_oe8yg")

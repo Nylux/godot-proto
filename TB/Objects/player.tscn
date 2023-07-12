@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://bey6ayom76k1a"]
+
+[ext_resource type="Script" path="res://Components/grid_movement_component.gd" id="2_2kxdp"]
+[ext_resource type="Script" path="res://Components/player_input_component.gd" id="3_f8dvn"]
+[ext_resource type="Texture2D" uid="uid://btiynxt4vc0tu" path="res://Art/Naked.png" id="4_20o7n"]
+[ext_resource type="Script" path="res://Components/health_component.gd" id="4_jotx3"]
+[ext_resource type="Script" path="res://Components/attack_component.gd" id="5_v45ee"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_26omb"]
+size = Vector2(8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h5c1p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_20o7n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_26omb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_h5c1p")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
+
+[node name="GridMovementComponent" type="Node" parent="."]
+script = ExtResource("2_2kxdp")
+
+[node name="PlayerInputComponent" type="Node" parent="."]
+script = ExtResource("3_f8dvn")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("4_jotx3")
+organic = true
+
+[node name="AttackComponent" type="Node" parent="."]
+script = ExtResource("5_v45ee")
